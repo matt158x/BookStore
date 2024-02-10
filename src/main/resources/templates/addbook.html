@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Store</title>
+  <link rel="stylesheet" href="/common.css">
+</head>
+<body>
+
+<div th:replace="~{fragments.html :: logo}"></div>
+<div th:replace="~{fragments.html :: menu}"></div>
+
+<div id="rent">
+
+  <h2>Dodaj nową książkę</h2>
+  <form action="/addbook" method="post">
+    <label for="title"><b>Tytuł:</b></label>
+    <input type="text" id="title" name="title"><br><br>
+
+    <label for="author"><b>Autor:</b></label>
+    <input type="text" id="author" name="author"><br><br>
+
+    <label for="price"><b>Cena:</b></label>
+    <input type="text" id="price" name="price"><br><br>
+
+    <label for="isbn"><b>ISBN:</b></label>
+    <input type="text" id="isbn" name="isbn"><br><br>
+
+    <label for="quantity"><b>Ilość:</b></label>
+    <input type="text" id="quantity" name="quantity"><br><br><br>
+
+    <b><input id="rent_button" type="submit" value="Add Book"></b>
+  </form>
+</div>
+</body>
+</html>
+

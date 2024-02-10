@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rent Book</title>
+    <link rel="stylesheet" href="/common.css">
+</head>
+<body>
+
+<div th:replace="~{fragments.html :: logo}"></div>
+<div th:replace="~{fragments.html :: menu}"></div>
+
+<div id="rent">
+
+<h2 id="rental">Wypożycz Książkę</h2>
+
+
+<form action="/rent" method="post">
+    <input type="hidden" th:field="*{book.id}" th:value="${book.id}" name="bookId"/>
+
+    <label><b>Tytuł: </b></label>
+    <span th:text="${book.title}"></span><br>
+
+    <label><b>Autor: </b></label>
+    <span th:text="${book.author}"></span><br><br><br>
+
+
+    <label><b>Imię: </b></label><br>
+    <input type="text" th:field="*{rental.name}" name="name"><br><br>
+
+    <label><b>Nazwisko: </b></label><br>
+    <input type="text" th:field="*{rental.surname}" name="surname"><br><br>
+
+    <label><b>Telefon: </b></label><br>
+    <input type="text" th:field="*{rental.phone}" name="phone"><br><br><br>
+
+    <input id="rent_button" type="submit" value="Wypożycz">
+
+</form>
+</div>
+</body>
+</html>

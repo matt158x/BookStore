@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Store</title>
+    <link rel="stylesheet" href="/common.css">
+    <link rel="stylesheet" href="/cart.css">
+</head>
+<body>
+
+<div th:replace="~{fragments.html :: logo}"></div>
+<div th:replace="~{fragments.html :: menu}"></div>
+
+<div id="content">
+
+    <div class="orderPosition labels">
+        <div class="title">Tytuł</div>
+        <div class="author">Autor</div>
+        <div  class="price">Cena</div>
+        <div class="quantity">Ilosc</div>
+        <div class="sum">Suma</div>
+
+    </div>
+
+
+    <div class="orderPosition" th:each="orderPosition : ${cart}">
+        <div th:text="${orderPosition.book.title}" class="title"/>
+        <div th:text="${orderPosition.book.author}" class="author"/>
+        <div th:text="${orderPosition.book.price + ' PLN'}" class="price"/>
+        <div th:text="${orderPosition.quantity}" class="quantity"/>
+        <div th:text="${#numbers.formatDecimal(orderPosition.quantity * orderPosition.book.price,1,2)}" class="sum"/>
+    </div>
+
+    <a href="/order" class="button" style="margin-top: 20px;">Zamów</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+/* Logo */
+#logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; /* Zwiększenie wysokości logo dla lepszego proporcjonowania */
+    background-color: #f2f2f2; /* Dodanie tła dla lepszego wyróżnienia */
+    margin-top: 10px; /* Dodanie górnego marginesu dla odstępu nad logo */
+}
+
+/* Menu */
+#menu {
+    text-align: center;
+    margin-top: 50px;
+    width: 100%;
+    background-color: #f2f2f2; /* Dodanie tła dla lepszego kontrastu */
+}
+
+/* Przyciski */
+.button {
+    font-size: 18px; /* Nieco mniejsza czcionka dla lepszego proporcjonowania */
+    margin: 10px 15px; /* Zwiększenie marginesu dla większej odległości między przyciskami */
+    text-decoration: none;
+    color: black;
+    border: 2px solid black;
+    padding: 10px 20px; /* Zwiększenie paddingu dla lepszego wyglądu przycisków */
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 5px; /* Zmniejszenie zaokrąglenia narożników */
+    transition: border, color, background-color 0.3s; /* Skrócenie czasu trwania przejścia */
+}
+
+/* Zmiana kolorów przy najechaniu */
+.button:hover {
+    border: 2px solid red;
+    color: white;
+    background-color: red;
+}
+
+/* Zawartość */
+#content {
+    width: 80%; /* Zwiększenie szerokości zawartości */
+    margin: 20px auto;
+    text-align: center;
+    background-color: #f2f2f2; /* Dodanie tła dla lepszego wyróżnienia */
+    padding: 20px; /* Dodanie wewnętrznego marginesu dla lepszego odstępu od krawędzi */
+}
+
+#rent {
+    width: 80%; /* Zwiększenie szerokości zawartości */
+    margin: 20px auto;
+    font-size: 24px;
+    text-align: center;
+    background-color: #f2f2f2; /* Dodanie tła dla lepszego wyróżnienia */
+    padding: 20px; /* Dodanie wewnętrznego marginesu dla lepszego odstępu od krawędzi */
+}
+
+
+/* Książki */
+.book {
+    border: 1px solid red;
+    text-align: left;
+    margin: 20px; /* Zwiększenie marginesu dla większej odległości między książkami */
+    padding: 10px; /* Dodanie wewnętrznego marginesu dla lepszego odstępu od krawędzi */
+    background-color: white; /* Dodanie białego tła dla lepszego kontrastu */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Dodanie cienia dla lepszego efektu 3D */
+}
+
+/* Zmiana kolorów przy najechaniu */
+.book:hover {
+    border: 1px solid black;
+    background-color: #e6e6e6; /* Subtelna zmiana koloru tła przy najechaniu */
+}
+
+/* Tytuł */
+.title {
+    font-size: 24px; /* Zmniejszenie czcionki dla lepszego proporcjonowania */
+    margin: 5px 0;
+}
+
+/* Autor */
+.author {
+    font-size: 20px; /* Zmniejszenie czcionki dla lepszego proporcjonowania */
+    margin: 5px 0;
+}
+
+/* Cena, ISBN, Ilość */
+.price, .isbn, .quantity {
+    font-size: 16px; /* Zmniejszenie czcionki dla lepszego proporcjonowania */
+    display: inline-block;
+    margin: 5px; /* Zwiększenie marginesu dla większej odległości między elementami */
+}
+
+#rent_button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    border: 2px solid black;
+    display: inline-block;
+    cursor: pointer;
+    transition: border, color, background-color 0.3s;
+}
+
+#rent_button:hover{
+    background-color: #e6e6e6;
+
+}
+
+input[type="text"], input[type="number"], input[type="password"] {
+    padding: 10px; /* Zwiększenie paddingu dla pola tekstowego */
+    border-radius: 5px; /* Zaokrąglenie rogów pola tekstowego */
+    border: 2px solid #ccc; /* Dodanie obramowania dla lepszego wyglądu */
+}
+
+input[type="submit"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid black;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border, color, background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #e6e6e6;
+}
+
+button[type=submit] {
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    border: 2px solid #ccc;
+    display: inline-block;
+    cursor: pointer;
+    transition: border, color, background-color 0.3s;
+}
+
+button[type=submit]:hover {
+    background-color: #e6e6e6;
+}

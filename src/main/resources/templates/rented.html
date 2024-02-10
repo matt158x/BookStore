@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Store</title>
+    <link rel="stylesheet" href="/common.css">
+</head>
+<body>
+
+<div th:replace="~{fragments.html :: logo}"></div>
+<div th:replace="~{fragments.html :: menu}"></div>
+
+<div id="content">
+
+    <h2>Lista wypożyczonych Książek</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tytuł</th>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Telefon</th>
+            <th>Data rozpoczęcia</th>
+            <th>Data zakończenia</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="rental : ${rentals}">
+            <td th:text="${rental.rentalId}"></td>
+            <td th:text="${rental.bookId}"></td>
+            <td th:text="${rental.name}"></td>
+            <td th:text="${rental.surname}"></td>
+            <td th:text="${rental.phone}"></td>
+            <td th:text="${rental.startDate}"></td>
+            <td th:text="${rental.endDate}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+</div>
+
+</body>
+</html>
+
+
+
+
