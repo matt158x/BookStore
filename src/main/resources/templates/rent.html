@@ -16,7 +16,8 @@
 
 
 <form action="/rent" method="post">
-    <input type="hidden" th:field="*{book.id}" th:value="${book.id}" name="bookId"/>
+
+    <input type="hidden" th:field="*{book.id}" th:value="${book.id}" name="bookID"/>
 
     <label><b>Tytuł: </b></label>
     <span th:text="${book.title}"></span><br>

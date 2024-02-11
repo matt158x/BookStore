@@ -47,6 +47,7 @@
     padding: 20px; /* Dodanie wewnętrznego marginesu dla lepszego odstępu od krawędzi */
 }
 
+
 #rent {
     width: 80%; /* Zwiększenie szerokości zawartości */
     margin: 20px auto;
@@ -141,4 +142,17 @@ button[type=submit] {
 
 button[type=submit]:hover {
     background-color: #e6e6e6;
+}
+
+.rental_labels {
+    text-align: center;
+}
+
+.rental_text {
+    text-align: center;
+}
+
+.label1 {
+    padding: 10px 10px;
+    text-align: center;
 }

@@ -51,6 +51,7 @@ public class BookDAO implements IBookDAO {
 
     }
 
+
     @Override
     public void delete(int id) {
         Session session = this.sessionFactory.openSession();

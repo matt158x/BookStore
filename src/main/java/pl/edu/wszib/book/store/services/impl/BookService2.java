@@ -27,6 +27,11 @@ public class BookService2 implements IBookService {
     public Book getBookById(int bookId) {
         return null;
     }
+
+    @Override
+    public void increaseBookQuantityById(int bookId) {
+
+    }
 }
 
 

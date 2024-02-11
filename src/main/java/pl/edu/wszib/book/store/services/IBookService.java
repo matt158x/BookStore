@@ -15,4 +15,6 @@ public interface IBookService {
     void addBook(Book book);
 
     Book getBookById(int bookId);
+
+    void increaseBookQuantityById(int bookId);
 }

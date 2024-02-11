@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Store</title>
+    <link rel="stylesheet" href="/common.css">
+</head>
+<body>
+
+<div th:replace="~{fragments.html :: logo}"></div>
+<div th:replace="~{fragments.html :: menu}"></div>
+
+<div id="content">
+
+    <h2>Lista wypożyczonych Książek</h2>
+
+    <table>
+        <thead>
+        <tr class="rental_labels">
+            <th class="label1">ID</th>
+            <th class="label1">ID Książki</th>
+            <th class="label1">Imię</th>
+            <th class="label1">Nazwisko</th>
+            <th class="label1">Telefon</th>
+            <th class="label1">Data rozpoczęcia</th>
+            <th class="label1">Data zakończenia</th>
+            <th class="label1">Akcje</th> <!-- Dodaj nową kolumnę na akcje -->
+        </tr>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="rental_text" th:each="rental : ${rentals}">
+            <td class="label1" th:text="${rental.rentalId}"></td>
+            <td class="label1" th:text="${rental.bookId}"></td>
+            <td class="label1" th:text="${rental.name}"></td>
+            <td class="label1" th:text="${rental.surname}"></td>
+            <td class="label1" th:text="${rental.phone}"></td>
+            <td class="label1" th:text="${rental.startDate}"></td>
+            <td class="label1" th:text="${rental.endDate}"></td>
+            <td class="label1">
+                <button th:attr="onclick='deleteRentalAndIncreaseBookQuantity(\'' + ${rental.rentalId} + '\', \'' + ${rental.bookId} + '\')'">Usuń</button>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+</div>
+
+<script>
+    function deleteRentalAndIncreaseBookQuantity(rentalId, bookId) {
+        // Wywołaj endpoint do usuwania wypożyczenia
+        fetch(`/deleteRental/${rentalId}`, {
+            method: 'DELETE',
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Wystąpił błąd podczas usuwania wypożyczenia');
+                }
+                // Jeśli wypożyczenie zostało usunięte pomyślnie, zwiększ ilość książek o 1
+                return fetch(`/increaseBookQuantity/${bookId}`, {
+                    method: 'PUT',
+                });
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Wystąpił błąd podczas zwiększania ilości książek');
+                }
+                // Poinformuj użytkownika o sukcesie
+                alert('Wypożyczenie usunięte pomyślnie, a ilość książek została zwiększona o 1.');
+            })
+            .catch(error => {
+                console.error('Wystąpił błąd:', error);
+                // Poinformuj użytkownika o błędzie
+                alert('Wystąpił błąd. Spróbuj ponownie później.');
+            });
+    }
+</script>
+
+
+
+
+</body>
+</html>
+
+
+
+

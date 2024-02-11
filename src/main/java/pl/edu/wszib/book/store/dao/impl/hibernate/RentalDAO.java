@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -15,6 +16,9 @@ import java.util.Optional;
 @Repository
 @Transactional
 public class RentalDAO implements IRentalDAO {
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -57,5 +61,11 @@ public class RentalDAO implements IRentalDAO {
         if (rental != null) {
             session.delete(rental);
         }
+    }
+
+    @Override
+    public void deleteById(int rentalId) {
+        String query = "DELETE FROM trent WHERE rentalId = ?";
+        jdbcTemplate.update(query, rentalId);
     }
 }

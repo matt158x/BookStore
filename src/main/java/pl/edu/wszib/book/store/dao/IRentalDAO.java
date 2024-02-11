@@ -11,6 +11,5 @@ public interface IRentalDAO {
     void delete(int rentalId);
 
 
-
-
+    void deleteById(int rentalId);
 }

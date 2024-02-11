@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface IRentalService {
 
+    void deleteRentalById(int rentalId);
+
     Book getBook(int bookId);
     void rentBook(Rental rental);
     // Dodaj inne operacje biznesowe związane z wypożyczeniami
