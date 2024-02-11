@@ -63,7 +63,7 @@ public class BookRepository implements IBookDAO {
         List<Book> foundBooks = new ArrayList<>();
 
         for (Book book : books) {
-            // Sprawdź czy tytuł, autor lub ISBN zawierają wyszukiwane zapytanie
+
             if (book.getTitle().toLowerCase().contains(searchQuery.toLowerCase()) ||
                     book.getAuthor().toLowerCase().contains(searchQuery.toLowerCase()) ||
                     book.getIsbn().toLowerCase().contains(searchQuery.toLowerCase())) {
@@ -76,7 +76,7 @@ public class BookRepository implements IBookDAO {
 
     @Override
     public void persist(Book book) {
-        // implementacja zapisu książki do pamięci
+
         book.setId(nextId++);
         books.add(book);
     }

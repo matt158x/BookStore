@@ -17,13 +17,13 @@ public class BookController {
     @RequestMapping(value = "/addbook", method = RequestMethod.GET)
     public String showAddBookForm(Model model) {
         model.addAttribute("book", new Book());
-        return "addbook"; // Nazwa szablonu HTML z formularzem dodawania książki
+        return "addbook";
     }
 
     @RequestMapping(value = "/addbook", method = RequestMethod.POST)
     public String addBook(@ModelAttribute Book book) {
         bookService.addBook(book);
-        return "redirect:/main"; // Przekierowanie na stronę z listą książek po dodaniu książki
+        return "redirect:/main";
     }
 
     @PutMapping("/increaseBookQuantity/{bookId}")

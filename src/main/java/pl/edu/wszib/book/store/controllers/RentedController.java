@@ -18,13 +18,13 @@ public class RentedController {
 
 
     @Autowired
-    private RentalService rentalService; // Serwis obsługujący operacje na wypożyczeniach
+    private RentalService rentalService;
 
     @GetMapping("/rentals")
     public String getAllRentals(Model model) {
-        List<Rental> rentals = rentalService.getAllRentals(); // Pobierz wszystkie wypożyczenia z serwisu
-        model.addAttribute("rentals", rentals); // Dodaj listę wypożyczeń do modelu, aby przekazać je do widoku
-        return "rentals"; // Zwróć nazwę widoku (nazwa pliku HTML bez rozszerzenia)
+        List<Rental> rentals = rentalService.getAllRentals();
+        model.addAttribute("rentals", rentals);
+        return "rentals";
     }
 
     @DeleteMapping("/deleteRental/{rentalId}")

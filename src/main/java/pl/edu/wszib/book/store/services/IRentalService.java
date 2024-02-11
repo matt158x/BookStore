@@ -11,5 +11,5 @@ public interface IRentalService {
 
     Book getBook(int bookId);
     void rentBook(Rental rental);
-    // Dodaj inne operacje biznesowe związane z wypożyczeniami
+
 }

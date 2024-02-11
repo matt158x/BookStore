@@ -29,11 +29,11 @@ public class RentalService implements IRentalService {
 
 
     @Autowired
-    private JdbcTemplate jdbcTemplate; // Szablon JDBC
+    private JdbcTemplate jdbcTemplate;
 
     public List<Rental> getAllRentals() {
-        String query = "SELECT * FROM trent"; // Zapytanie SQL do pobrania wszystkich wypożyczeń
-        return jdbcTemplate.query(query, (rs, rowNum) -> mapRowToRental(rs)); // Wykonaj zapytanie i zmapuj wyniki do listy wypożyczeń
+        String query = "SELECT * FROM trent";
+        return jdbcTemplate.query(query, (rs, rowNum) -> mapRowToRental(rs));
     }
 
     private Rental mapRowToRental(ResultSet rs) throws SQLException {
@@ -66,11 +66,8 @@ public class RentalService implements IRentalService {
         if (bookOptional.isPresent()) {
             Book book = bookOptional.get();
 
-            // Sprawdź, czy ilość dostępnych książek jest większa od zera
             if (book.getQuantity() > 0) {
-                // Odejmij jedną książkę od ilości dostępnych
                 book.setQuantity(book.getQuantity() - 1);
-                // Zaktualizuj informacje o książce w bazie danych
                 bookDAO.update(book);
 
 
@@ -85,9 +82,6 @@ public class RentalService implements IRentalService {
 
                 rentalDAO.persist(rental);
             } else {
-                // Jeśli ilość dostępnych książek wynosi zero, możesz obsłużyć to zgodnie z Twoimi wymaganiami,
-                // na przykład wyświetlając odpowiednie komunikaty błędu lub wykonując inne działania.
-                // Tutaj możesz rzucić wyjątek lub wyświetlić komunikat.
                 throw new IllegalStateException("Brak dostępnych egzemplarzy książki.");
             }
         }

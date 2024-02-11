@@ -24,7 +24,7 @@
             <th class="label1">Telefon</th>
             <th class="label1">Data rozpoczęcia</th>
             <th class="label1">Data zakończenia</th>
-            <th class="label1">Akcje</th> <!-- Dodaj nową kolumnę na akcje -->
+            <th class="label1">Akcje</th>
         </tr>
         </tr>
         </thead>
@@ -49,7 +49,6 @@
 
 <script>
     function deleteRentalAndIncreaseBookQuantity(rentalId, bookId) {
-        // Wywołaj endpoint do usuwania wypożyczenia
         fetch(`/deleteRental/${rentalId}`, {
             method: 'DELETE',
         })
@@ -57,7 +56,6 @@
                 if (!response.ok) {
                     throw new Error('Wystąpił błąd podczas usuwania wypożyczenia');
                 }
-                // Jeśli wypożyczenie zostało usunięte pomyślnie, zwiększ ilość książek o 1
                 return fetch(`/increaseBookQuantity/${bookId}`, {
                     method: 'PUT',
                 });
@@ -66,12 +64,10 @@
                 if (!response.ok) {
                     throw new Error('Wystąpił błąd podczas zwiększania ilości książek');
                 }
-                // Poinformuj użytkownika o sukcesie
                 alert('Wypożyczenie usunięte pomyślnie, a ilość książek została zwiększona o 1.');
             })
             .catch(error => {
                 console.error('Wystąpił błąd:', error);
-                // Poinformuj użytkownika o błędzie
                 alert('Wystąpił błąd. Spróbuj ponownie później.');
             });
     }
